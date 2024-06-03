@@ -32,4 +32,42 @@ IQ. How to inject Dependencies?
 @Primary
 -> It is used to set the preference of particular bean, when multiple bean of same type for autowiring.
 
+Lazy Initialization
+1. If We can specify @Lazy annotation, Spring container will not create object implicitly for all beans.
+2. A bean will only initialized in the following cases:
+	a. It is needed for DI.
+	b. It is explicitly requested.
+3. Add @Lazy annotation to the bean class only.
+4. How to set all bean are lazy?
+	spring.main.lazy-initialization=true
+
+How to inject Multiple Depedencies
+Singleton Scope
+----------------
+-> By default, SC create only one object of the bean.
+-> All dependecy injection will reference to the same bean.
+-> @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
+
+Prototype Scope
+---------------
+-> SC create multiple objects of the bean depend upon the DI.
+-> All dependecy injection will reference to the different intance of the bean.
+-> new object instance for each injection.
+-> @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+
+Component Scanning
+-> By default, SB starts component scanning from same package by the help of @SpringBootApplication.
+-> It also scan sub-packages.
+
+
+
+Extra:
+1. How to hide the springboot banner
+spring.main.banner-mode=off
+
+2. How to hide log files
+logging.level.root=warn
+
+3. How to update the port no. of the server
+server.port=8085
 
